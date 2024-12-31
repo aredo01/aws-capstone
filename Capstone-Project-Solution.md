@@ -281,7 +281,7 @@ Before we create our cluster. We need to launch NAT instance. Because, our EC2 c
 Go to the EC2 console and click Launch instance 
 - Name: aws-capstone-nat-instance
 - AMI: write "amzn-ami-vpc-nat-hvm" into the filter box
-select NAT Instance `ami-0780b09c119334593` 
+select NAT Instance `ami-0015c0130d6cc5da7` 
     - Instance Type: t2.micro
     - Key Pair - choose your key pair
     - Network : aws-capstone-vpc
@@ -289,6 +289,7 @@ select NAT Instance `ami-0780b09c119334593`
     - Security Group: aws-capstone-nat-sg
     - Termination protection        : Enable    
     - Other features keep them as are
+    check  and on networkingstop  source/destination
 ```
 - Click on `Launch Instance`
 
