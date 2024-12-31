@@ -412,10 +412,10 @@ apt  install awscli -y
 cd /home/ubuntu/
 TOKEN=$(aws --region=us-east-1 ssm get-parameter --name /oduor/capstone/token --with-decryption --query 'Parameter.Value' --output text)
 git clone https://$TOKEN@github.com/aredo01/aws-capstone.git
-cd /home/ubuntu/aws-capstone-project
+cd /home/ubuntu/aws-capstone
 apt-get install python3.10-dev default-libmysqlclient-dev -y
 pip3 install -r requirements.txt
-cd /home/ubuntu/aws-capstone-project/src
+cd /home/ubuntu/aws-capstone/src
 python3 manage.py collectstatic --noinput
 #python3 manage.py makemigrations
 #python3 manage.py migrate
