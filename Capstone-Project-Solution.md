@@ -75,7 +75,7 @@ The Clarusway Blog Page Application aims to deploy blog application as a web app
   - select private route table
   - Policy `Full Access`
   - and then create
-  - go route table and check the rules. There has been newly created rule seen on table.
+  - go route table and check the rules. There has been newly created rule seen on table.( cant's ***
 
 ## Break
 
@@ -107,7 +107,7 @@ Before we start, we need to create our security groups. Our EC2 and RDS are goin
    Inbound Rules
    HTTP(80) ----> aws-capstone-alb-sg
    HTTPS (443) ----> aws-capstone-alb-sg
-   SSH ----> aws-capstone-nat-sg**\***
+   SSH ----> aws-capstone-nat-sg**\*** (to countercheck)
 
 4. RDS Security Groups
    Name : aws-capstone-rds-sg
@@ -202,7 +202,7 @@ Subnets            : Select 2 Private Subnets in these subnets (x.x.11.0, x.x.21
 
 - Now we can launch DB instance on RDS console. Go to the RDS console and click `create database` button
 
-Choose a database creation method : Standard Create
+Choose a database creation method : Standard Create ....
 Engine Type : MySQL
 Edition : MySQL Community
 Version : 8.0.33 (or latest)
@@ -289,9 +289,8 @@ select NAT Instance `ami-0015c0130d6cc5da7`
     - Subnet  : aws-capstone-public-subnet-1a
     - Security Group: aws-capstone-nat-sg
     - Termination protection        : Enable
-    - Other features keep them as are
-    #check  and on networking stop  source/destination
-```
+    - Other features keep them as are same
+    Auto-assign public IP - enable
 
 - Click on `Launch Instance`
 
