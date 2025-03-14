@@ -1,15 +1,16 @@
 Clarusway Blog Page Application Deployment on AWS 🌍☁️
 Overview 📖
-The Clarusway Blog Page Application is a web application built using the Django framework. This application allows users to write and manage their own blogs, upload media (images/videos), and store their content securely on AWS services such as S3 and RDS. The application is hosted on a highly available and scalable AWS infrastructure utilizing EC2, Auto Scaling, Load Balancers, CloudFront, Route 53, and other essential AWS services.
+The Clarusway Blog Page Application is a web application built using the Django framework. 
+This application allows users to write and manage their own blogs, upload media (images/videos), and store their content securely on AWS services such as S3 and RDS. 
+The application is hosted on a highly available and scalable AWS infrastructure utilizing EC2, Auto Scaling, Load Balancers, CloudFront, Route 53, and other essential AWS services.
 
 Key Features:
 Scalable and Resilient Architecture: Deployed using AWS services such as EC2, RDS, and S3 with Auto Scaling, Load Balancing, and CloudFront caching for high availability and performance. ⚡
 Secure Data Handling: Sensitive data such as database credentials are securely managed using SSM Parameter Store. 🔐
 Efficient Traffic Management: Application Load Balancer (ALB) manages incoming traffic, with automatic scaling based on load and Route 53 for DNS management and failover routing. 🚦
 Serverless Functions: AWS Lambda is used to trigger actions (such as saving media metadata to DynamoDB) when new media is uploaded to S3. 🔄
-Architecture Diagram 🏗️
 
-(Ensure you replace this URL with your actual image URL hosted on your S3 or a reliable image hosting service.)
+Architecture Diagram 🏗️
 
 Project Components 🛠️
 AWS EC2: Ubuntu 22.04 instances running the Django application. 🖥️
@@ -23,6 +24,7 @@ AWS CloudFront: Content delivery network (CDN) for fast and secure access to app
 AWS Route 53: DNS management with failover configuration. 🌐
 AWS SSM Parameter Store: Securely stores database credentials and GitHub token. 🔑
 Architecture Workflow 🔄
+
 User Interaction:
 
 Users interact with the Django-based web application via the browser, hosted on an EC2 instance behind an ALB.
@@ -77,7 +79,8 @@ Django Framework 🐍
 Git/GitHub for Version Control 🧑‍💻
 Python 3.8, MySQL 🧑‍🔧
 Conclusion 🎯
-This project demonstrates how to deploy a Django-based web application on AWS using best practices in scalability, security, and high availability. It leverages various AWS services to ensure a seamless user experience, with automatic scaling, secure data storage, and efficient traffic management. 💪
+This project demonstrates how to deploy a Django-based web application on AWS using best practices in scalability, security, and high availability. 
+It leverages various AWS services to ensure a seamless user experience, with automatic scaling, secure data storage, and efficient traffic management. 💪
 
 License 📝
 This project is licensed under the MIT License - see the LICENSE file for details.
