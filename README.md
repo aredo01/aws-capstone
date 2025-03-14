@@ -8,9 +8,7 @@ Secure Data Handling: Sensitive data like database credentials are securely mana
 Efficient Traffic Management: Application Load Balancer (ALB) routes incoming traffic, with automatic scaling based on load, and Route 53 for DNS management and failover routing. 🚦
 Serverless Functions: AWS Lambda triggers actions (such as saving media metadata to DynamoDB) when new media is uploaded to S3. 🔄
 Architecture Diagram 🏗️
-
 (Replace the URL with your actual image URL hosted on S3 or a reliable image hosting service.)
-
 Project Components 🛠️
 AWS EC2: Ubuntu 22.04 instances running the Django application. 🖥️
 AWS RDS: MySQL database for storing user data. 🗄️
@@ -24,7 +22,6 @@ AWS Route 53: DNS management with failover configuration. 🌐
 AWS SSM Parameter Store: Securely stores database credentials and GitHub token. 🔑
 Architecture Workflow 🔄
 User Interaction:
-
 Users interact with the Django-based web application via their browsers, hosted on EC2 instances behind an ALB.
 Users can upload images or videos to their personal blog pages, with media content stored in S3.
 Load Balancing & Auto Scaling:
@@ -32,14 +29,13 @@ Load Balancing & Auto Scaling:
 Traffic is routed through the ALB, which distributes requests across EC2 instances within the Auto Scaling Group.
 The Auto Scaling Group adjusts the number of EC2 instances based on traffic load, ensuring high availability and optimal performance.
 Data Storage & Management:
-
 User data is stored in an RDS MySQL database.
 Media files are stored in S3, with metadata saved to DynamoDB.
 Lambda functions are triggered by S3 events to update DynamoDB with media metadata.
 Security & Performance:
-
 SSL certificates are used for secure HTTP(S) connections, with CloudFront providing content caching for faster access.
 Route 53 manages DNS and routes traffic based on health checks for failover purposes.
+
 Steps for Deployment 🚀
 1. Create AWS VPC and Subnets 🌍
 Set up a dedicated VPC with both public and private subnets across multiple availability zones.
@@ -65,7 +61,6 @@ Set up Route 53 with a failover routing policy to ensure traffic is routed to he
 Create a Lambda function to capture S3 events and update metadata in DynamoDB.
 Environment Variables 🌿
 Ensure the following environment variables are set in the Django settings (settings.py):
-
 S3_BUCKET_NAME: The name of the S3 bucket for storing user media.
 RDS_DB_NAME: The name of the RDS MySQL database.
 RDS_USERNAME: The database username fetched from SSM Parameter Store.
