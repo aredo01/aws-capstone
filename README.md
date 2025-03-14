@@ -1,21 +1,20 @@
 Clarusway Blog Page Application Deployment on AWS 🌍☁️
 Overview 📖
-The Clarusway Blog Page Application is a web application built using the Django framework. 
-This application allows users to write and manage their own blogs, upload media (images/videos), and store their content securely on AWS services such as S3 and RDS. 
-The application is hosted on a highly available and scalable AWS infrastructure utilizing EC2, Auto Scaling, Load Balancers, CloudFront, Route 53, and other essential AWS services.
+The Clarusway Blog Page Application is a web application built using the Django framework. This application allows users to write and manage blogs, upload media (images/videos), and store their content securely on AWS services such as S3 and RDS. The application is deployed using a scalable and highly available AWS infrastructure utilizing EC2, Auto Scaling, Load Balancers, CloudFront, Route 53, and other essential AWS services.
 
 Key Features:
 Scalable and Resilient Architecture: Deployed using AWS services such as EC2, RDS, and S3 with Auto Scaling, Load Balancing, and CloudFront caching for high availability and performance. ⚡
-Secure Data Handling: Sensitive data such as database credentials are securely managed using SSM Parameter Store. 🔐
-Efficient Traffic Management: Application Load Balancer (ALB) manages incoming traffic, with automatic scaling based on load and Route 53 for DNS management and failover routing. 🚦
-Serverless Functions: AWS Lambda is used to trigger actions (such as saving media metadata to DynamoDB) when new media is uploaded to S3. 🔄
-
+Secure Data Handling: Sensitive data like database credentials are securely managed using SSM Parameter Store. 🔐
+Efficient Traffic Management: Application Load Balancer (ALB) routes incoming traffic, with automatic scaling based on load, and Route 53 for DNS management and failover routing. 🚦
+Serverless Functions: AWS Lambda triggers actions (such as saving media metadata to DynamoDB) when new media is uploaded to S3. 🔄
 Architecture Diagram 🏗️
+
+(Replace the URL with your actual image URL hosted on S3 or a reliable image hosting service.)
 
 Project Components 🛠️
 AWS EC2: Ubuntu 22.04 instances running the Django application. 🖥️
 AWS RDS: MySQL database for storing user data. 🗄️
-AWS S3: Two buckets, one for user media uploads and the other for failover static website hosting. 🗑️
+AWS S3: Two buckets — one for user media uploads and the other for failover static website hosting. 🗑️
 AWS DynamoDB: Stores metadata of uploaded media files. 📁
 AWS Lambda: Triggers on S3 events to update DynamoDB with media metadata. ⚙️
 AWS ALB (Application Load Balancer): Manages HTTP(S) traffic and distributes it across EC2 instances. 🔄
@@ -24,20 +23,19 @@ AWS CloudFront: Content delivery network (CDN) for fast and secure access to app
 AWS Route 53: DNS management with failover configuration. 🌐
 AWS SSM Parameter Store: Securely stores database credentials and GitHub token. 🔑
 Architecture Workflow 🔄
-
 User Interaction:
 
-Users interact with the Django-based web application via the browser, hosted on an EC2 instance behind an ALB.
-The application allows users to upload images or videos to their personal blog pages, with media content stored in S3.
+Users interact with the Django-based web application via their browsers, hosted on EC2 instances behind an ALB.
+Users can upload images or videos to their personal blog pages, with media content stored in S3.
 Load Balancing & Auto Scaling:
 
 Traffic is routed through the ALB, which distributes requests across EC2 instances within the Auto Scaling Group.
 The Auto Scaling Group adjusts the number of EC2 instances based on traffic load, ensuring high availability and optimal performance.
 Data Storage & Management:
 
-User data is stored in a MySQL database managed by RDS.
-Media files are stored in an S3 bucket, with metadata saved to a DynamoDB table.
-Lambda functions are triggered by S3 events to update DynamoDB with file metadata.
+User data is stored in an RDS MySQL database.
+Media files are stored in S3, with metadata saved to DynamoDB.
+Lambda functions are triggered by S3 events to update DynamoDB with media metadata.
 Security & Performance:
 
 SSL certificates are used for secure HTTP(S) connections, with CloudFront providing content caching for faster access.
@@ -48,13 +46,13 @@ Set up a dedicated VPC with both public and private subnets across multiple avai
 Configure routing tables, NAT Gateway/Instances, and Internet Gateway for secure and optimized communication between resources.
 2. Create RDS MySQL Instance 🗄️
 Launch an RDS MySQL instance in the private subnet.
-Use AWS SSM Parameter Store to securely manage database credentials.
+Use SSM Parameter Store to securely manage database credentials.
 3. Configure EC2 Instances with Django App 🖥️
 Launch EC2 instances using Launch Templates.
 Install Django and required dependencies using user data scripts.
 Clone the project repository from GitHub and deploy the Django app.
 4. Set Up S3 for Media Storage 🗂️
-Create two S3 buckets: one for storing user-uploaded media and another for a static website in case of failover.
+Create two S3 buckets: one for storing user-uploaded media and another for failover static website hosting.
 5. Set Up Auto Scaling 📈
 Configure an Auto Scaling Group with a desired capacity of 1 EC2 instance, and a max size of 3 instances to handle variable loads.
 6. Configure Load Balancer and Target Group 🚦
@@ -66,7 +64,7 @@ Set up Route 53 with a failover routing policy to ensure traffic is routed to he
 9. Configure Lambda and DynamoDB ⚙️
 Create a Lambda function to capture S3 events and update metadata in DynamoDB.
 Environment Variables 🌿
-Ensure to set the following environment variables in the Django settings (settings.py):
+Ensure the following environment variables are set in the Django settings (settings.py):
 
 S3_BUCKET_NAME: The name of the S3 bucket for storing user media.
 RDS_DB_NAME: The name of the RDS MySQL database.
@@ -79,8 +77,7 @@ Django Framework 🐍
 Git/GitHub for Version Control 🧑‍💻
 Python 3.8, MySQL 🧑‍🔧
 Conclusion 🎯
-This project demonstrates how to deploy a Django-based web application on AWS using best practices in scalability, security, and high availability. 
-It leverages various AWS services to ensure a seamless user experience, with automatic scaling, secure data storage, and efficient traffic management. 💪
+This project demonstrates how to deploy a Django-based web application on AWS using best practices in scalability, security, and high availability. It leverages various AWS services to ensure a seamless user experience, with automatic scaling, secure data storage, and efficient traffic management. 💪
 
 License 📝
 This project is licensed under the MIT License - see the LICENSE file for details.
